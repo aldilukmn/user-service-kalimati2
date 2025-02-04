@@ -3,6 +3,7 @@ CREATE TABLE `users` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `username` VARCHAR(191) NOT NULL,
     `password` VARCHAR(191) NOT NULL,
+    `email` VARCHAR(191) NOT NULL,
     `role` VARCHAR(191) NOT NULL,
     `picture_url` VARCHAR(191) NOT NULL,
     `picture_id` VARCHAR(191) NOT NULL,

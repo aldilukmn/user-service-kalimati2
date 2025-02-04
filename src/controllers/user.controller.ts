@@ -1,16 +1,34 @@
 import { Request, Response } from 'express';
 import { UserService } from '../services/user.service';
+import UserRequest from '../models/dto/user-request';
+import { defaultResponse } from '../utils/default-response';
 
 export class UserController {
-  public static async getUsers(req: Request, res: Response) {
+  // public static async getUsers(req: Request, res: Response) {
+  //   try {
+  //     const users = await UserService.getAllUsers();
+  //     res.status(200).json(users);
+  //   } catch (error) {
+  //     if (error instanceof Error) {
+  //       res.status(500).json({
+  //         error: error.message
+  //       });
+  //     };
+  //   };
+  // };
+
+  public static async createUser(req: Request, res: Response) {
+    const isPict: string = req.file?.path!;
+    const typePict: string = req.file?.mimetype!;
+    const payload: UserRequest  = req.body;
     try {
-      const users = await UserService.getAllUsers();
-      res.status(200).json(users);
-    } catch (error) {
-      if (error instanceof Error) {
-        res.status(500).json({
-          error: error.message
-        });
+      const newUser = await UserService.createUser(payload, isPict, typePict);
+      const response = defaultResponse(201, 'success', 'user successfully created', newUser);
+      res.status(201).json(response);
+    } catch (e) {
+      if (e instanceof Error) {
+        const response = defaultResponse(400, 'fail', e.message);
+        res.status(400).json(response);
       };
     };
   };

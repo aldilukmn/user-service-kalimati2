@@ -1,5 +1,4 @@
-export interface User {
-  id: number
+export default interface UserRequest {
   username: string
   password: string
   email: string
@@ -9,4 +8,4 @@ export interface User {
   created_at: Date
   updated_at: Date
   status: string
-};
+}
