@@ -8,6 +8,7 @@ app.use(express.urlencoded({ extended: true })); //For Login body json, POST MET
 env.config();
 app.use(cors({
   credentials: true,
+  origin: true,
 }))
 app.use('/api/users', userRoutes)
 
