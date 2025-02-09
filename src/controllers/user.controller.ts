@@ -42,7 +42,7 @@ export class UserController {
         httpOnly: true,
         maxAge: 60 * 60 + 1000,
         secure: true,
-        sameSite: 'lax'
+        sameSite: 'none'
       });
       res.status(200).json(response);
     } catch (e) {
