@@ -32,4 +32,18 @@ export class UserController {
       };
     };
   };
+
+  public static async loginUser(req: Request, res: Response) {
+    const payload: UserRequest = req.body;
+    try {
+      const result = await UserService.loginUser(payload);
+      const response = defaultResponse(200, 'success', 'user has found', result);
+      res.status(200).json(response);
+    } catch (e) {
+      if (e instanceof Error) {
+        const response = defaultResponse(400, 'fail', e.message);
+        res.status(400).json(response);
+      };
+    };
+  }
 };
