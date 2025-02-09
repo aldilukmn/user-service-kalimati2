@@ -9,6 +9,7 @@ env.config();
 app.use(cors({
   credentials: true,
   origin: true,
+  exposedHeaders: ['Set-Cookie']
 }))
 app.use('/api/users', userRoutes)
 
