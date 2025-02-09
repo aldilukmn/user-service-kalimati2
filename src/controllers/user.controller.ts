@@ -38,6 +38,11 @@ export class UserController {
     try {
       const result = await UserService.loginUser(payload);
       const response = defaultResponse(200, 'success', 'user has found', result);
+      res.cookie('auth_token', `Bearer ${result.token}`, {
+        httpOnly: true,
+        maxAge: 60 * 60 + 1000,
+        secure: true
+      });
       res.status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
