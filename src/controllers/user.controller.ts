@@ -42,9 +42,7 @@ export class UserController {
         httpOnly: true,
         maxAge: 60 * 60 + 1000,
         secure: true,
-        path: '/'
-      });
-      res.status(200).json(response);
+      }).status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
         const response = defaultResponse(400, 'fail', e.message);
