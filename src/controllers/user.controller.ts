@@ -41,7 +41,8 @@ export class UserController {
       res.cookie('auth_token', `Bearer ${result.token}`, {
         httpOnly: true,
         maxAge: 60 * 60 + 1000,
-        secure: true
+        secure: true,
+        sameSite: 'strict'
       });
       res.status(200).json(response);
     } catch (e) {
