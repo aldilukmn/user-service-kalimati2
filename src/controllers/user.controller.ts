@@ -42,6 +42,7 @@ export class UserController {
         httpOnly: true,
         maxAge: 60 * 60 + 1000,
         secure: true,
+        path: '/'
       }).status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
