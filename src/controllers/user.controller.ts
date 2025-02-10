@@ -1,4 +1,4 @@
-import type { Request, Response } from 'express';
+import { Request, Response } from 'express';
 import { UserService } from '../services/user.service';
 import UserRequest from '../models/dto/user-request';
 import { defaultResponse } from '../utils/default-response';
@@ -42,9 +42,8 @@ export class UserController {
         httpOnly: true,
         maxAge: 60 * 60 + 1000,
         secure: process.env.NODE_ENV === 'production',
-        domain: 'vercel.app',
-        // path: '/',
-        // sameSite: 'none',
+        domain: 'user-service-kalimati2.vercel.app',
+        path: '/',
       }).status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
