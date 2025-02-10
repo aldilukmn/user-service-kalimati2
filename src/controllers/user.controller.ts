@@ -44,7 +44,7 @@ export class UserController {
         secure: process.env.NODE_ENV === 'production',
         domain: 'user-service-kalimati2.vercel.app',
         path: '/',
-        sameSite: 'none'
+        sameSite: 'strict'
       }).status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
