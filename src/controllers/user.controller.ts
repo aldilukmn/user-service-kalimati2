@@ -43,7 +43,8 @@ export class UserController {
         maxAge: 60 * 60 + 1000,
         secure: process.env.NODE_ENV === 'production',
         domain: 'user-service-kalimati2.vercel.app',
-        path: '/'
+        path: '/',
+        sameSite: 'none'
       }).status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
