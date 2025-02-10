@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 import { UserService } from '../services/user.service';
 import UserRequest from '../models/dto/user-request';
 import { defaultResponse } from '../utils/default-response';
@@ -39,12 +39,12 @@ export class UserController {
       const result = await UserService.loginUser(payload);
       const response = defaultResponse(200, 'success', 'user has found', result);
       res.cookie('auth_token', `Bearer ${result.token}`, {
-        httpOnly: true,
+        // httpOnly: true,
         maxAge: 60 * 60 + 1000,
-        secure: process.env.NODE_ENV === 'production',
-        domain: 'vercel.app',
-        path: '/',
-        sameSite: 'none',
+        // secure: process.env.NODE_ENV === 'production',
+        // domain: 'vercel.app',
+        // path: '/',
+        // sameSite: 'none',
       }).status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
