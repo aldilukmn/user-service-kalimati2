@@ -44,7 +44,9 @@ export class UserController {
         secure: process.env.NODE_ENV === 'production',
         domain: 'user-service-kalimati2.vercel.app',
         path: '/',
-      }).status(200).json(response);
+      });
+      console.log('Response Headers', res.getHeaders());
+      res.status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
         const response = defaultResponse(400, 'fail', e.message);
