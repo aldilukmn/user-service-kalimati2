@@ -45,7 +45,7 @@ export class UserController {
         domain: 'user-service-kalimati2.vercel.app',
         path: '/',
       });
-      console.log('Response Headers', res.getHeaders());
+      console.error('Response Headers', res.getHeaders());
       res.status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
