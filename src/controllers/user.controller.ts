@@ -42,7 +42,8 @@ export class UserController {
         httpOnly: true,
         maxAge: 60 * 60 + 1000,
         secure: process.env.NODE_ENV === 'production',
-        domain: 'user-service-kalimati2.vercel.app'
+        domain: 'user-service-kalimati2.vercel.app',
+        path: '/'
       }).status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
