@@ -8,10 +8,10 @@ const app = express();
 app.use(express.urlencoded({ extended: true })); //For Login body json, POST METHOD
 env.config();
 app.use(cookieParser());
+app.enable('trust proxy')
 app.use(cors({
   credentials: true,
   origin: true,
-  exposedHeaders: ['Set-Cookie']
 }))
 app.use('/api/users', userRoutes)
 
