@@ -39,10 +39,10 @@ export class UserController {
       const result = await UserService.loginUser(payload);
       const response = defaultResponse(200, 'success', 'user has found', result);
       res.cookie('auth_token', `Bearer ${result.token}`, {
-        // httpOnly: true,
+        httpOnly: true,
         maxAge: 60 * 60 + 1000,
-        // secure: process.env.NODE_ENV === 'production',
-        // domain: 'vercel.app',
+        secure: process.env.NODE_ENV === 'production',
+        domain: 'vercel.app',
         // path: '/',
         // sameSite: 'none',
       }).status(200).json(response);
