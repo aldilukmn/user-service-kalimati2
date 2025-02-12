@@ -1,6 +1,5 @@
 import type { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import env from 'dotenv';
 import { validateToken } from '../utils/valid-token';
 import { UserRepository } from '../repositories/user.repository';
 import { User } from '@prisma/client';

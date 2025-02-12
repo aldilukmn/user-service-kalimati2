@@ -13,11 +13,11 @@ app.use(cors({
   credentials: true,
 }))
 app.use('/api/users', userRoutes)
-app.use((req, res, next) => {
-  res.on('finish', () => {
-    console.log(`Response Headers:`, res.getHeaders());
-  });
-  next();
-});
+// app.use((req, res, next) => {
+//   res.on('finish', () => {
+//     console.log(`Response Headers:`, res.getHeaders());
+//   });
+//   next();
+// });
 
 export default app;
