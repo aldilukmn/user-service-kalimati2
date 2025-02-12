@@ -9,15 +9,8 @@ app.use(express.urlencoded({ extended: true })); //For Login body json, POST MET
 env.config();
 // app.use(cookieParser());
 app.use(cors({
-  origin: ['https://uptdsdn2kalimati.vercel.app'],
+  origin: ['https://uptdsdn2kalimati.vercel.app', 'http://localhost:3000'],
   credentials: true,
 }))
 app.use('/api/users', userRoutes)
-// app.use((req, res, next) => {
-//   res.on('finish', () => {
-//     console.log(`Response Headers:`, res.getHeaders());
-//   });
-//   next();
-// });
-
 export default app;
