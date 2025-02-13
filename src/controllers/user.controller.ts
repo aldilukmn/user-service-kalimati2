@@ -38,13 +38,11 @@ export class UserController {
     try {
       const result = await UserService.loginUser(payload);
       const response = defaultResponse(200, 'success', 'user has found', result);
-      // res.cookie('auth_token', `Bearer ${result.token}`, {
-      //   httpOnly: true,
-      //   maxAge: 60 * 60 + 1000,
-      //   secure: process.env.NODE_ENV === 'production',
-      //   path: '/',
-      // }).status(200).json(response);
-      res.status(200).json(response);
+      res.cookie('auth_token', `Bearer ${result.token}`, {
+        httpOnly: true,
+        maxAge: 60 * 60 + 1000,
+        secure: process.env.NODE_ENV === 'production',
+      }).status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
         const response = defaultResponse(400, 'fail', e.message);
