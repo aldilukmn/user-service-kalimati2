@@ -4,7 +4,7 @@ export const validateToken = (token: string | undefined) => {
   };
 
   if (!token.startsWith('Bearer')) {
-    throw new Error('wrong format token!')
+    throw new Error('wrong format token')
   };
 
   const getToken: string = token.split(' ')[1];
