@@ -38,7 +38,7 @@ export class UserController {
     try {
       const result = await UserService.loginUser(payload);
       const response = defaultResponse(200, 'success', 'user has found', result);
-      res.cookie('auth_token', `Bearer ${result.token}`, {
+      res.cookie(`${process.env.COOKIE_NAME}`, `Bearer ${result.token}`, {
         httpOnly: true,
         maxAge: 60 * 60 + 1000,
         secure: process.env.NODE_ENV === 'production',
@@ -54,6 +54,10 @@ export class UserController {
   public static async logoutUser(req: Request, res: Response) {
     try {
       const response = defaultResponse(200, 'success', 'user successfully logout');
+      res.clearCookie(`${process.env.COOKIE_NAME}` as string, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+      })
       res.status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {

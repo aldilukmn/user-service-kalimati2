@@ -22,7 +22,8 @@ class UserMiddleware {
 _a = UserMiddleware;
 UserMiddleware.verifyToken = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const token = req.headers.authorization;
+        // const token: string | undefined = req.headers.authorization;
+        const token = req.cookies.auth_token;
         const getToken = (0, valid_token_1.validateToken)(token);
         const decoded = jsonwebtoken_1.default.verify(getToken, `${process.env.SECRET_KEY}`);
         const user = yield user_repository_1.UserRepository.findByUsername(decoded.user);
