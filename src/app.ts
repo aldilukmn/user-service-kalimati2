@@ -10,6 +10,7 @@ env.config();
 app.use(cookieParser());
 app.use(cors({
   origin: [`${process.env.FE_URL}`, 'http://localhost:3000'],
+  methods: ['GET', 'POST', 'PATCH', 'DELETE'],
   credentials: true,
 }));
 app.use('/api/users', userRoutes);
