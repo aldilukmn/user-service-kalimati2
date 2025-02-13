@@ -53,6 +53,12 @@ class UserController {
             try {
                 const result = yield user_service_1.UserService.loginUser(payload);
                 const response = (0, default_response_1.defaultResponse)(200, 'success', 'user has found', result);
+                // res.cookie('auth_token', `Bearer ${result.token}`, {
+                //   httpOnly: true,
+                //   maxAge: 60 * 60 + 1000,
+                //   secure: process.env.NODE_ENV === 'production',
+                //   path: '/',
+                // }).status(200).json(response);
                 res.status(200).json(response);
             }
             catch (e) {
@@ -63,6 +69,20 @@ class UserController {
                 ;
             }
             ;
+        });
+    }
+    static logoutUser(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            try {
+                const response = (0, default_response_1.defaultResponse)(200, 'success', 'user successfully logout');
+                res.status(200).json(response);
+            }
+            catch (e) {
+                if (e instanceof Error) {
+                    const response = (0, default_response_1.defaultResponse)(400, 'fail', e.message);
+                    res.status(400).json(response);
+                }
+            }
         });
     }
 }
