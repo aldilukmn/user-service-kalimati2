@@ -57,7 +57,7 @@ class UserController {
                     httpOnly: true,
                     maxAge: 60 * 60 + 1000,
                     secure: process.env.NODE_ENV === 'production',
-                    sameSite: 'lax'
+                    sameSite: 'none'
                 }).status(200).json(response);
             }
             catch (e) {
