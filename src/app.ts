@@ -8,9 +8,9 @@ const app = express();
 app.use(express.urlencoded({ extended: true })); //For Login body json, POST METHOD
 env.config();
 app.use(cookieParser());
-app.use(cors({
+app.use('*', cors({
   origin: [`${process.env.FE_URL}`, 'http://localhost:3000'],
-  methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+  // methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   credentials: true,
 }));
 app.use('/api/users', userRoutes);

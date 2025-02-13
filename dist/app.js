@@ -12,9 +12,9 @@ const app = (0, express_1.default)();
 app.use(express_1.default.urlencoded({ extended: true })); //For Login body json, POST METHOD
 dotenv_1.default.config();
 app.use((0, cookie_parser_1.default)());
-app.use((0, cors_1.default)({
+app.use('*', (0, cors_1.default)({
     origin: [`${process.env.FE_URL}`, 'http://localhost:3000'],
-    methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
+    // methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     credentials: true,
 }));
 app.use('/api/users', user_route_1.default);
