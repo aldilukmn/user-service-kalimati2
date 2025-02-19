@@ -11,5 +11,5 @@ const router = express_1.default.Router();
 // router.get('/', UserController.getUsers);
 router.post('/', upload_file_1.handleImage, user_controller_1.UserController.createUser);
 router.post('/login', user_controller_1.UserController.loginUser);
-router.delete('/logout', user_middleware_1.default.verifyToken, user_controller_1.UserController.logoutUser);
+router.post('/logout', user_middleware_1.default.verifyToken, user_controller_1.UserController.logoutUser);
 exports.default = router;

@@ -7,6 +7,6 @@ const router = express.Router();
 // router.get('/', UserController.getUsers);
 router.post('/', handleImage, UserController.createUser);
 router.post('/login', UserController.loginUser);
-router.delete('/logout', UserMiddleware.verifyToken, UserController.logoutUser);
+router.post('/logout', UserMiddleware.verifyToken, UserController.logoutUser);
 
 export default router;
