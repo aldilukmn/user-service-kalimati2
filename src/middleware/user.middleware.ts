@@ -9,7 +9,6 @@ import { defaultResponse } from '../utils/default-response';
 export default class UserMiddleware {
   public static verifyToken = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      // const token: string | undefined = req.headers.authorization;
       const token: string | undefined = req.cookies.auth_token;
       const getToken = validateToken(token);
       const decoded = jwt.verify(getToken, `${process.env.SECRET_KEY}`) as DecodedType;
