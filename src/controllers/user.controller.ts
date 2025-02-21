@@ -44,7 +44,8 @@ export class UserController {
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'none', //with secure is active,
         path: '/'
-      }).status(200).json(response);
+      });
+      res.status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
         const response = defaultResponse(400, 'fail', e.message);
