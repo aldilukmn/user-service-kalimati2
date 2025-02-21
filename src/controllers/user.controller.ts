@@ -38,13 +38,15 @@ export class UserController {
     try {
       const result = await UserService.loginUser(payload);
       const response = defaultResponse(200, 'success', 'user has found', result);
-      res.cookie(`${process.env.COOKIE_NAME}`, `Bearer ${result.token}`, {
-        httpOnly: true,
-        // maxAge: 60 * 60 * 1000,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'none', //with secure is active,
-        path: '/'
-      }).status(200).json(response);
+      res.setHeader('Set-Cookie', `auth_token=Bearer ${result.token}; Path=/; HttpOnly; SameSite=none; Secure=${process.env.NODE_ENV === 'production' ? 'true' : 'false'}`);
+      // res.cookie(`${process.env.COOKIE_NAME}`, `Bearer ${result.token}`, {
+      //   httpOnly: true,
+      //   // maxAge: 60 * 60 * 1000,
+      //   secure: process.env.NODE_ENV === 'production',
+      //   sameSite: 'none', //with secure is active,
+      //   path: '/'
+      // });
+      res.status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
         const response = defaultResponse(400, 'fail', e.message);
@@ -56,12 +58,14 @@ export class UserController {
   public static async logoutUser(req: Request, res: Response) {
     try {
       const response = defaultResponse(200, 'success', 'user successfully logout');
-      res.clearCookie(`${process.env.COOKIE_NAME}` as string, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'none', //with secure is active,
-        path: '/'
-      }).status(200).json(response);
+      // res.clearCookie(`${process.env.COOKIE_NAME}` as string, {
+      //   httpOnly: true,
+      //   secure: process.env.NODE_ENV === 'production',
+      //   sameSite: 'none', //with secure is active,
+      //   path: '/'
+      // });
+      res.setHeader('Set-Cookie', 'auth_token=; Path=/; HttpOnly; SameSite=none; Secure=' + (process.env.NODE_ENV === 'production' ? 'true' : 'false') + '; Expires=Thu, 01 Jan 1970 00:00:00 GMT');
+      res.status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
         const response = defaultResponse(400, 'fail', e.message);
