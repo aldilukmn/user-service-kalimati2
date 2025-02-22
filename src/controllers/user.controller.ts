@@ -40,7 +40,7 @@ export class UserController {
       const response = defaultResponse(200, 'success', 'user has found', result);
       res.cookie(`${process.env.COOKIE_NAME}`, `Bearer ${result.token}`, {
         httpOnly: true,
-        maxAge: 60 * 60 * 1000,
+        // maxAge: 60 * 60 * 1000,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'none', //with secure is active,
         path: '/',
