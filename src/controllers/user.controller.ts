@@ -42,7 +42,7 @@ export class UserController {
         httpOnly: true,
         maxAge: 60 * 60 * 1000,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'none', //with secure is active,
+        sameSite: 'lax', //with secure is active,
         path: '/',
         domain: '.vercel.app'
       }).status(200).json(response);
@@ -60,7 +60,7 @@ export class UserController {
       res.clearCookie(`${process.env.COOKIE_NAME}` as string, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'none', //with secure is active,
+        sameSite: 'lax', //with secure is active,
         path: '/',
         domain: '.vercel.app'
       }).status(200).json(response);
