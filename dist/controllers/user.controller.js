@@ -57,9 +57,9 @@ class UserController {
                     httpOnly: true,
                     maxAge: 60 * 60 * 1000,
                     secure: process.env.NODE_ENV === 'production',
-                    // sameSite: 'lax', //with secure is active,
+                    sameSite: 'lax', //with secure is active,
                     path: '/',
-                    domain: '.vercel.app'
+                    // domain: '.vercel.app'
                 }).status(200).json(response);
             }
             catch (e) {
@@ -79,9 +79,9 @@ class UserController {
                 res.clearCookie(`${process.env.COOKIE_NAME}`, {
                     httpOnly: true,
                     secure: process.env.NODE_ENV === 'production',
-                    // sameSite: 'lax', //with secure is active,
+                    sameSite: 'lax', //with secure is active,
                     path: '/',
-                    domain: '.vercel.app'
+                    // domain: '.vercel.app'
                 }).status(200).json(response);
             }
             catch (e) {
