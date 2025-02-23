@@ -40,11 +40,11 @@ export class UserController {
       const response = defaultResponse(200, 'success', 'user has found', result);
       res.cookie(`${process.env.COOKIE_NAME}`, `Bearer ${result.token}`, {
         httpOnly: true,
-        // maxAge: 60 * 60 * 1000,
+        maxAge: 60 * 60 * 1000,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'none', //with secure is active,
-        path: '/',
-        domain: '.vercel.app'
+        sameSite: 'strict', //with secure is active,
+        // path: '/',
+        // domain: '.vercel.app'
       }).status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
@@ -60,9 +60,9 @@ export class UserController {
       res.clearCookie(`${process.env.COOKIE_NAME}` as string, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'none', //with secure is active,
-        path: '/',
-        domain: 'uptdsdn2kalimati.vercel.app'
+        sameSite: 'strict', //with secure is active,
+        // path: '/',
+        // domain: 'uptdsdn2kalimati.vercel.app'
       }).status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
