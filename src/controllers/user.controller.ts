@@ -43,7 +43,7 @@ export class UserController {
         maxAge: 60 * 60 * 1000,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'none', //with secure is active,
-        path: '/api/user/',
+        path: '/',
         domain: 'uptdsdn2kalimati.vercel.app'
       }).status(200).json(response);
     } catch (e) {
@@ -61,7 +61,7 @@ export class UserController {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'none', //with secure is active,
-        path: '/api/user/',
+        path: '/',
         domain: 'uptdsdn2kalimati.vercel.app'
       }).status(200).json(response);
     } catch (e) {
