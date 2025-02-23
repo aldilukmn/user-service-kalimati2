@@ -56,7 +56,7 @@ class UserController {
                 res.cookie(`${process.env.COOKIE_NAME}`, `Bearer ${result.token}`, {
                     httpOnly: true,
                     maxAge: 60 * 60 * 1000,
-                    secure: process.env.NODE_ENV === 'development',
+                    secure: process.env.NODE_ENV === 'production',
                     sameSite: 'none', //with secure is active,
                     path: '/',
                     // domain: '.vercel.app'
@@ -78,7 +78,7 @@ class UserController {
                 const response = (0, default_response_1.defaultResponse)(200, 'success', 'user successfully logout');
                 res.clearCookie(`${process.env.COOKIE_NAME}`, {
                     httpOnly: true,
-                    secure: process.env.NODE_ENV === 'development',
+                    secure: process.env.NODE_ENV === 'production',
                     sameSite: 'none', //with secure is active,
                     path: '/',
                     // domain: '.vercel.app'
