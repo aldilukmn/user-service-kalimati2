@@ -61,7 +61,7 @@ export class UserController {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'none', //with secure is active,
-        path: '/',
+        path: '/api/user/',
         domain: 'uptdsdn2kalimati.vercel.app'
       }).status(200).json(response);
     } catch (e) {

@@ -17,11 +17,5 @@ app.use((0, cors_1.default)({
     methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
     credentials: true,
 }));
-app.use((req, res, next) => {
-    res.on('finish', () => {
-        console.log('Response Headers:', res.getHeaders());
-    });
-    next();
-});
 app.use('/api/users', user_route_1.default);
 exports.default = app;
