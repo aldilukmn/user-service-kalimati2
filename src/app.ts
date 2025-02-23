@@ -9,10 +9,9 @@ app.use(express.urlencoded({ extended: true })); //For Login body json, POST MET
 env.config();
 app.use(cookieParser());
 app.use(cors({
-  origin: [`${process.env.FE_URL}`, 'http://localhost:3000'],
+  origin: true,
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   credentials: true,
-  exposedHeaders: ['Set-Cookie']
 }));
 app.use('/api/users', userRoutes);
 export default app;
