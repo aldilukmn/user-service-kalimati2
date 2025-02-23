@@ -58,7 +58,7 @@ class UserController {
                     maxAge: 60 * 60 * 1000,
                     secure: process.env.NODE_ENV === 'production',
                     sameSite: 'none', //with secure is active,
-                    path: '/',
+                    path: '/api/user/',
                     domain: 'uptdsdn2kalimati.vercel.app'
                 }).status(200).json(response);
             }
