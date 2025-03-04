@@ -58,9 +58,9 @@ class UserController {
                     maxAge: 60 * 60 * 1000,
                     secure: process.env.NODE_ENV === 'production',
                     sameSite: 'none', //with secure is active,
-                    domain: "vercel.app",
+                    // domain: "vercel.app",
                     path: '/',
-                    // domain: 'uptdsdn2kalimati.vercel.app'
+                    domain: 'uptdsdn2kalimati.vercel.app'
                 }).status(200).json(response);
             }
             catch (e) {
@@ -81,9 +81,9 @@ class UserController {
                     httpOnly: true,
                     secure: process.env.NODE_ENV === 'production',
                     sameSite: 'none', //with secure is active,
-                    domain: "vercel.app",
+                    // domain: "vercel.app",
                     path: '/',
-                    // domain: 'uptdsdn2kalimati.vercel.app'
+                    domain: 'uptdsdn2kalimati.vercel.app'
                 }).status(200).json(response);
             }
             catch (e) {
