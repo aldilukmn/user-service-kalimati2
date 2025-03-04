@@ -44,8 +44,8 @@ export class UserController {
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'none', //with secure is active,
         path: '/',
-        domain: "startling-madeleine-21b157",
-        // domain: 'uptdsdn2kalimati.vercel.app'
+        // domain: "startling-madeleine-21b157",
+        domain: 'uptdsdn2kalimati'
       }).status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
@@ -63,8 +63,8 @@ export class UserController {
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'none', //with secure is active,
         path: '/',
-        domain: "startling-madeleine-21b157",
-        // domain: 'uptdsdn2kalimati.vercel.app'
+        // domain: "startling-madeleine-21b157",
+        domain: 'uptdsdn2kalimati'
       }).status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
