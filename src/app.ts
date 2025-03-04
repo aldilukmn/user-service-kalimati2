@@ -12,7 +12,7 @@ app.use(cors({
   // origin: true,
   origin: ["https://uptdsdn2kalimati.vercel.app", ""],
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
-  // credentials: true,
+  credentials: true,
 }));
 app.use('/api/users', userRoutes);
 export default app;
