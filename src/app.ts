@@ -10,7 +10,7 @@ env.config();
 app.use(cookieParser());
 app.use(cors({
   // origin: true,
-  origin: "https://next-fe-kalimati2.vercel.app",
+  origin: "https://uptdsdn2kalimati.vercel.app",
   methods: ['GET', 'POST', 'PATCH', 'DELETE', 'OPTIONS'],
   credentials: true,
 }));
