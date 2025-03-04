@@ -42,7 +42,7 @@ export class UserController {
         httpOnly: true,
         maxAge: 60 * 60 * 1000,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax', //with secure is active,
+        sameSite: 'none', //with secure is active,
         path: '/',
         domain: "startling-madeleine-21b157.netlify.app",
         // domain: 'uptdsdn2kalimati.vercel.app'
@@ -61,7 +61,7 @@ export class UserController {
       res.clearCookie(`${process.env.COOKIE_NAME}` as string, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax', //with secure is active,
+        sameSite: 'none', //with secure is active,
         path: '/',
         domain: "startling-madeleine-21b157.netlify.app",
         // domain: 'uptdsdn2kalimati.vercel.app'
