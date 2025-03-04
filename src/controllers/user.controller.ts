@@ -44,7 +44,7 @@ export class UserController {
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'none', //with secure is active,
         path: '/',
-        domain: ".netlify.app",
+        // domain: ".netlify.app",
         // domain: 'uptdsdn2kalimati.vercel.app'
       }).status(200).json(response);
     } catch (e) {
@@ -63,7 +63,7 @@ export class UserController {
         secure: process.env.NODE_ENV === 'production',
         sameSite: 'none', //with secure is active,
         path: '/',
-        domain: ".netlify.app",
+        // domain: ".netlify.app",
         // domain: 'uptdsdn2kalimati.vercel.app'
       }).status(200).json(response);
     } catch (e) {
