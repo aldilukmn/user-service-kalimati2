@@ -58,13 +58,15 @@ export class UserController {
   public static async logoutUser(req: Request, res: Response) {
     try {
       const response = defaultResponse(200, 'success', 'user successfully logout');
-      res.clearCookie(`${process.env.COOKIE_NAME}` as string, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'none', //with secure is active,
-        path: '/',
-        domain: 'uptdsdn2kalimati.vercel.app'
-      }).status(200).json(response);
+      // res.clearCookie(`${process.env.COOKIE_NAME}` as string, {
+      //   httpOnly: true,
+      //   secure: process.env.NODE_ENV === 'production',
+      //   sameSite: 'none', //with secure is active,
+      //   path: '/',
+      //   // domain: "startling-madeleine-21b157",
+      //   domain: 'uptdsdn2kalimati'
+      // }).status(200).json(response);
+      res.status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
         const response = defaultResponse(400, 'fail', e.message);
