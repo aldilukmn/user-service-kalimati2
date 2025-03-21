@@ -45,7 +45,7 @@ export class UserService {
     });
   };
 
-  public static async loginUser(payload: Partial<UserRequest>): Promise<{ token: string, username: string }> {
+  public static async loginUser(payload: Partial<UserRequest>): Promise<{token: string}> {
     try {
       const username = payload.username?.trim()!;
       const password = payload.password?.trim()!;
@@ -70,10 +70,7 @@ export class UserService {
       }, process.env.SECRET_KEY, {
         expiresIn: '1h'
       });
-      return {
-        token,
-        username
-      }
+      return {token}
     } catch (e) {
         if (e instanceof Error)
           throw new Error(e.message);

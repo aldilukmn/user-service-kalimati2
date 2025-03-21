@@ -38,14 +38,15 @@ export class UserController {
     try {
       const result = await UserService.loginUser(payload);
       const response = defaultResponse(200, 'success', 'user has found', result);
-      res.cookie(`${process.env.COOKIE_NAME}`, `Bearer ${result.token}`, {
-        httpOnly: true,
-        // maxAge: 60 * 60 * 1000,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'none', //with secure is active,
-        path: '/',
-        domain: '.vercel.app'
-      }).status(200).json(response);
+      // res.cookie(`${process.env.COOKIE_NAME}`, `Bearer ${result.token}`, {
+      //   httpOnly: true,
+      //   // maxAge: 60 * 60 * 1000,
+      //   // secure: process.env.NODE_ENV === 'production',
+      //   // sameSite: 'none', //with secure is active,
+      //   // path: '/',
+      //   // domain: '.vercel.app'
+      // }).status(200).json(response);
+      res.status(200).json(response);
     } catch (e) {
       if (e instanceof Error) {
         const response = defaultResponse(400, 'fail', e.message);
